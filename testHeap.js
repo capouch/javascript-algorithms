@@ -10,16 +10,21 @@
     }
  }
 
-var MAX = 50
+//var MAX = 50
 var sort = require('./src/sorting/heapsort.js').heapSort;
-var values = [];
-for (var i = 0; i < MAX; ++i) {
-  values[i] = Math.floor(Math.random() * MAX+1);
-  }
+//var values = [];
+//for (var i = 0; i < MAX; ++i) {
+//  values[i] = Math.floor(Math.random() * MAX+1);
+//  }
+//
+values = [19,4,38,26,14,73,3,83,42,6];
 
 console.log('\nBefore: ');
 dispArr(values);
-console.log('\nAfter: ');
 
-dispArr(sort(values)); 
+console.log('\nAfter: ');
+dispArr(sort(values, function(a,b) {
+ return b - a;
+} 
+),true); 
 
