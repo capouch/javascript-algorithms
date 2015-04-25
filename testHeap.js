@@ -26,5 +26,5 @@ console.log('\nAfter: ');
 dispArr(sort(values, function(a,b) {
  return b - a;
 } 
-),true); 
+,true)); 
 
