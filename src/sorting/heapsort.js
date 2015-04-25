@@ -37,7 +37,8 @@
         var temp = array[index];
         array[index] = array[largest];
         array[largest] = temp;
-//console.log('Calling heapify recursively');
+	//if(debug)
+	//  console.log('Calling heapify recursively');
         heapify(array, largest, heapSize, cmp);
       }
     }
@@ -51,9 +52,9 @@
      * @return {Array} array Array turned into max heap.
      */
     function buildMaxHeap(array, cmp, debug) {
-console.log('Value of debug is ' + debug);
       for (var i = Math.floor(array.length / 2); i >= 0; i -= 1) {
-//console.log('Calling heapify from for loop');
+	if (debug)
+	  console.log('Calling heapify from for loop');
         heapify(array, i, array.length, cmp);
       }
       return array;
@@ -79,19 +80,18 @@ console.log('Value of debug is ' + debug);
      * @return {Array} Sorted array.
      */
     return function (array, cmp, debug) {
-console.log('Swaps during initial heap construction:');
+      if (debug)
+        console.log('Swaps during initial heap construction:');
       cmp = cmp || comparator;
-//      debug = debug || false;
-// value is set to the parameter which was passed, or if there was none
-// then set it to the RHS of the |
+      debug = debug || false;
       var size = array.length;
       var temp;
       buildMaxHeap(array, cmp, debug);
 
-console.log('Heap is built; calls below are adjusting:');
+      if (debug)
+        console.log('Heap is built; calls below are adjusting:');
       for (var i = array.length - 1; i > 0; i -= 1) {
         temp = array[0];
-// console.log('Pulling ' + temp);
         array[0] = array[i];
         array[i] = temp;
         size -= 1;
