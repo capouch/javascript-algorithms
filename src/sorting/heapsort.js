@@ -80,10 +80,10 @@
      * @return {Array} Sorted array.
      */
     return function (array, cmp, debug) {
-      if (debug)
-        console.log('Swaps during initial heap construction:');
       cmp = cmp || comparator;
       debug = debug || false;
+      if (debug)
+        console.log('Swaps during initial heap construction:');
       var size = array.length;
       var temp;
       buildMaxHeap(array, cmp, debug);
